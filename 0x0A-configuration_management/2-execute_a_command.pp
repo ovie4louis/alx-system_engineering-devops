@@ -1,10 +1,6 @@
-exec { 'killmenow_process':
-  command     => '/usr/bin/pkill killmenow',
-  refreshonly => true,
-  subscribe   => Exec['check_killmenow_process'],
-}
-
-exec { 'check_killmenow_process':
-  command     => '/usr/bin/pgrep killmenow',
-  refreshonly => true,
+#This code kills a process && works together with the killmenow file which has already been provided
+exec {'killmenow':
+    command => '/usr/bin/pkill killmenow',
+    provider => 'shell',
+    return => [0, 1]
 }
