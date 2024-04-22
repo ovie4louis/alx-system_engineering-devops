@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # using pippet to make changes to our configuration file
 
-file {'ect/ssh/ssh_cofig':
+file { 'ect/ssh/ssh_cofig':
         ensure  => present,
 
 content =>"
@@ -10,6 +10,6 @@ content =>"
         host*
         IdentityFile ~/.ssh/school
         PasswordAuthentication no
-        "
+        ",
 
 }
