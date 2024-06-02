@@ -1,0 +1,25 @@
+https://imgur.com/a/mVHNGIG
+
+Load Balancer (HAProxy Cluster):
+
+This box represents the two instances of HAProxy configured as a cluster.
+Draw arrows pointing towards the web server and application server boxes to indicate that the load balancer distributes traffic to them.
+Connect the two HAProxy instances with a line to represent their clustering and synchronization.
+Web Server:
+
+This box represents the server hosting the web application.
+Draw arrows pointing towards it from the load balancer box to indicate that it receives web traffic.
+Optionally, you can draw multiple instances of the web server if you're deploying them for scalability.
+Application Server:
+
+This box represents the server hosting the application logic.
+Draw arrows pointing towards it from the load balancer box to indicate that it receives application traffic.
+Connect this box to the database server box to represent the interaction between the application and database servers.
+Database Server:
+
+This box represents the server hosting the database.
+Draw arrows pointing towards it from the application server box to indicate that it is accessed by the application server.
+Optionally, you can represent replication or backup connections if you have multiple instances or backup mechanisms in place.
+Label each box with the corresponding component name (Load Balancer, Web Server, Application Server, Database Server) and possibly include additional details such as IP addresses or server names for clarity.
+
+This visual representation helps in understanding how the components are connected and how traffic flows within the system. You can use any diagramming tool like Lucidchart, draw.io, or even hand-draw the diagram if needed.
