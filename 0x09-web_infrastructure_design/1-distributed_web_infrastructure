@@ -1,0 +1,43 @@
+https://imgur.com/a/Z1nvV2R
+
+Web Server (Nginx)
+
+Purpose: Nginx is added to handle HTTP requests, serve static content, and reverse proxy requests to the application server. It improves performance, security, and scalability.
+Configuration: Nginx is configured to listen on port 80 and proxy requests to the application server.
+Application Server
+
+Purpose: Hosts and runs the application code, processing incoming requests and handling business logic.
+Configuration: The application server is configured to run the application and connect to the MySQL database.
+Load Balancer (HAProxy)
+
+Purpose: Distributes incoming traffic across multiple web servers to ensure high availability and reliability.
+Configuration: HAProxy is set up to use a round-robin distribution algorithm.
+Database (MySQL)
+
+Purpose: Stores application data, ensuring data persistence and availability.
+Configuration: MySQL is configured with a database and user specific to the application.
+Load Balancer Configuration
+Distribution Algorithm:
+Round-Robin: HAProxy is configured with the round-robin algorithm, which distributes requests evenly across all available web servers in a circular order. This ensures that each server gets an equal share of requests, helping to balance the load effectively.
+Active-Active vs. Active-Passive Setup
+Active-Active: In an active-active setup, all servers behind the load balancer are actively serving traffic. This increases availability and utilizes all resources efficiently. If one server fails, the load balancer redirects traffic to the remaining active servers.
+Active-Passive: In an active-passive setup, only one server actively serves traffic, while the other servers are on standby. If the active server fails, a passive server takes over. This setup ensures high availability but does not utilize all resources as efficiently as active-active.
+Database Primary-Replica (Master-Slave) Cluster
+Functionality:
+The primary (master) node handles all write operations and propagates changes to replica (slave) nodes.
+Replica nodes handle read operations and replicate data from the primary node to ensure consistency.
+Application Perspective:
+Primary Node: The application directs all write operations (insert, update, delete) to the primary node.
+Replica Node: The application directs read operations (select) to replica nodes to distribute the read load and improve performance.
+Issues with the Current Infrastructure
+Single Points of Failure (SPOF)
+
+Load Balancer: If the load balancer fails, the entire system becomes unavailable. Implementing multiple load balancers in an active-active configuration can mitigate this risk.
+Database: A single database server is a SPOF. Implementing a primary-replica cluster can improve availability.
+Security Issues
+
+No Firewall: Without a firewall, the servers are vulnerable to unauthorized access and attacks. Implementing firewalls can restrict access and enhance security.
+No HTTPS: HTTP traffic is unencrypted, making it susceptible to eavesdropping and man-in-the-middle attacks. Enabling HTTPS ensures secure communication.
+No Monitoring
+
+Lack of Monitoring: Without monitoring, it's difficult to detect and respond to issues promptly. Implementing monitoring tools (e.g., Prometheus, Grafana) can help track the performance and health of the infrastructure.
