@@ -1,0 +1,9 @@
+https://imgur.com/a/YbjMQfI
+User's Browser: The user's browser sends a request to access www.foobar.com.
+Internet: The request travels through the internet to reach the DNS server.
+DNS: The DNS server translates www.foobar.com to the IP address 8.8.8.8.
+Single Server: The single server is hosting all the components:
+Web Server (Nginx): Receives the request and serves static content or forwards dynamic content requests to the application server.
+Application Server: Processes the business logic and serves dynamic content.
+Application Files: The codebase for the application.
+Database (MySQL): Stores and manages the application data.
