@@ -1,0 +1,40 @@
+https://imgur.com/a/cO7uPp1
+
+1. Firewalls
+Why are firewalls added?
+
+Firewalls are added to control and secure network traffic between different segments of the infrastructure. They act as barriers between trusted and untrusted networks, filtering incoming and outgoing traffic based on predefined security rules.
+What are firewalls for?
+
+Firewalls enforce security policies to protect against unauthorized access, malware, and other cyber threats. They monitor and control traffic based on IP addresses, ports, and protocols to prevent malicious activity.
+2. Serving Traffic over HTTPS
+Why is traffic served over HTTPS?
+
+Traffic is served over HTTPS to ensure secure communication between the client (browser) and the web server. HTTPS encrypts data transmitted over the network, protecting it from interception and tampering by malicious actors. It also authenticates the server's identity, ensuring users are connecting to the intended website.
+3. Monitoring
+What is monitoring used for?
+
+Monitoring is used to track the performance, availability, and security of the infrastructure and applications. It helps identify issues, anomalies, and potential threats in real-time, enabling proactive maintenance and troubleshooting.
+How is the monitoring tool collecting data?
+
+The monitoring tool collects data through agents or collectors deployed on various components of the infrastructure. These agents continuously gather metrics, logs, and events and transmit them to a central monitoring platform for analysis and visualization.
+Monitoring Web Server QPS (Queries Per Second)
+How to monitor web server QPS?
+
+To monitor web server QPS, you can configure the monitoring tool to track incoming requests and responses. This can be achieved by:
+Logging request metrics, such as request count and response time.
+Setting up custom monitoring scripts or plugins to extract QPS data from web server logs or performance metrics.
+Integrating with web server monitoring modules or APIs to directly capture QPS metrics.
+Issues with the Infrastructure
+1. Terminating SSL at the Load Balancer Level
+Why is this an issue?
+
+Terminating SSL at the load balancer means that encrypted traffic is decrypted at the load balancer before being forwarded to backend servers. This can introduce a security risk as decrypted data is vulnerable to interception between the load balancer and backend servers.
+2. Having Only One MySQL Server Capable of Accepting Writes
+Why is this an issue?
+
+Having only one MySQL server capable of accepting writes creates a single point of failure. If this server fails or becomes overloaded, it can lead to downtime and data loss. Additionally, it limits scalability and redundancy options for the database layer.
+3. Servers with All the Same Components (Database, Web Server, and Application Server)
+Why might this be a problem?
+
+Having servers with identical components increases the risk of a single point of failure affecting multiple layers of the infrastructure simultaneously. For example, if a critical vulnerability or misconfiguration impacts one component, it can propagate across all servers, leading to widespread outages or security breaches.
